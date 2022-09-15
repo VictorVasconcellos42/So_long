@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/09/15 06:38:13 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/15 11:49:58 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "../utils/libft/libft.h"
 
 # define VICTOR "images/victor.xpm"
+# define MADEIRA "images/madeira.xpm"
 
 typedef struct	s_sprite
 
