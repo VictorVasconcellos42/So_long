@@ -6,7 +6,7 @@
 #    By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/09/15 05:38:05 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/09/15 09:15:05 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,5 +49,6 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAMELIB)
+	@rm -rf so_long
 
 re: fclean all
