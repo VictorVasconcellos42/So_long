@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 01:27:10 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/09/15 07:07:38 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/15 07:37:20 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,22 @@ int	main(void)
 {
 	t_begin		start;
 	t_sprite	img;
+	int			i = -1;
 
 	start.server = mlx_init();
-	start.window = mlx_new_window(start.server, 500, 500, "Test");
+	start.window = mlx_new_window(start.server, 352, 352, "Test");
 	img.sprite = mlx_xpm_file_to_image(start.server, VICTOR, &img.width, &img.height);
-	mlx_put_image_to_window(start.server, start.window, img.sprite, 0, 0);
-	mlx_key_hook(start.window, keye_hook, &start);
+	while (++i * 32 <= 320)
+		mlx_put_image_to_window(start.server, start.window, img.sprite, i * 32, 0);
+	i = -1;
+	while (++i * 32 <= 320)
+ 		mlx_put_image_to_window(start.server, start.window, img.sprite, 0, i * 32);
+	i = -1;
+	while (++i * 32 <= 320)
+ 		mlx_put_image_to_window(start.server, start.window, img.sprite, 320, i * 32);
+	i = -1;
+	while (++i * 32 <= 320)
+ 		mlx_put_image_to_window(start.server, start.window, img.sprite, i * 32, 320);
 	mlx_loop(start.server);
 	return (0);
 }
