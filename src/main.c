@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 01:27:10 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/09/15 06:40:11 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/15 07:07:38 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ int	main(void)
 {
 	t_begin		start;
 	t_sprite	img;
-	//void	*charizard;
-	//int		img_w;
-	//int		img_l;
 
 	start.server = mlx_init();
 	start.window = mlx_new_window(start.server, 500, 500, "Test");
