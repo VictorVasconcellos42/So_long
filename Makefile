@@ -6,7 +6,7 @@
 #    By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/09/15 09:15:05 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/09/15 09:19:10 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ $(NAMELIB):
 
 $(GAME): $(NAMELIB) $(OBJS)
 	@cc $(FLAGS) $(NAMELIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
+	@rm -rf $(OBJS)
 	@echo "So_long created!!"
 
 clean:
