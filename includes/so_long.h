@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/09/20 00:06:40 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/20 03:39:03 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,37 @@
 # include "../utils/get_next_line/get_next_line.h"
 
 # define VICTOR "images/victor.xpm"
-# define MADEIRA "images/madeira.xpm"
-# define FERNANDA "images/fernanda.xpm"
+# define WALLS "images/madeira.xpm"
 
-typedef struct	s_begin
+# define SIZE_SPRITE 32
+
+// My struct for player in my game:
+
+typedef struct	s_avatar
 
 {
-	void	*server;
-	void	*sprite;
-	int		width;
-	int		height;
-	void	*window;
-}	t_begin;
+	int		pos_x;
+	int		pos_y;
+}	t_avatar;
 
-void	reader(int fd);
+// My struct for start my graphical conection!
+
+typedef struct	s_server
+
+{
+	void	*init;
+	void	*win;
+}	t_server;
+
+// My struct's struct for my game:
+
+typedef struct	s_config
+
+
+{
+	t_server	server;
+	t_avatar	avatar;
+	
+}	t_config;
 
 #endif
