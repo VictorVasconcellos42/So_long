@@ -6,13 +6,13 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 01:36:13 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/05/18 02:14:01 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/19 19:27:12 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 
 {
 	char	*string;
