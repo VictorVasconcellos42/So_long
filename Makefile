@@ -6,13 +6,13 @@
 #    By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/09/15 15:26:03 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/09/20 00:07:03 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 
-SRCS	=	src/main.c
+SRCS	=	src/so_long.c src/reader.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -22,7 +22,13 @@ MLX_A	=	statics/libmlx.a
 
 LIBFT	=	utils/libft/libft.a
 
+GNL_LIB	=	statics/get_next_line.a
+
+GNL		=	utils/get_next_line/get_next_line.a
+
 PATH_LIB	=	utils/libft
+
+PATH_GNL	=	utils/get_next_line
 
 GAME	= so_long
 
@@ -42,7 +48,9 @@ all: $(GAME) $(NAMELIB)
 
 $(NAMELIB):
 	@$(MAKE) -s -C $(PATH_LIB)
-	@cp $(LIBFT) ./statics 
+	@$(MAKE) -s -C $(PATH_GNL)
+	@cp $(LIBFT) ./statics
+	@cp $(GNL)	./statics
 	@echo "$(BLUE)[ C R E A T I N G ... ]$(END)"
 	@echo "$(GREEN)Library created!!!$(END)"
 
@@ -51,7 +59,7 @@ $(NAMELIB):
 	@echo "$(GREEN)Objects created!!$(END)"
 
 $(GAME): $(NAMELIB) $(OBJS)
-	@cc $(FLAGS) $(NAMELIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
+	@cc $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
 	@rm -rf $(OBJS)
 	@echo "$(GREEN)So_long created!!$(END)"
 
@@ -63,5 +71,10 @@ clean:
 fclean: clean
 	@rm -rf $(NAMELIB)
 	@rm -rf so_long
+
+debug: $(NAMELIB) $(OBJS)
+	@cc -g $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit src/main.c -o $(GAME)
+	@rm -rf $(OBJS)
+	@echo "$(GREEN)So_long debugger created!!$(END)"
 
 re: fclean all
