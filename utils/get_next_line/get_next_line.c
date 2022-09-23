@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 17:00:19 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/08/02 00:47:44 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:22:47 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*rest_line(char *backup)
 	}
 	if (backup[i] == '\n')
 		i++;
-	rest = malloc(sizeof(char) * ft_strlen(backup) - i + 1);
+	rest = malloc(sizeof(char) * ft_strlen_gnl(backup) - i + 1);
 	if (!(rest))
 		return (NULL);
 	count = 0;
@@ -76,7 +76,7 @@ static char	*read_line(char *backup, int fd)
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!(buffer))
 		return (NULL);
-	while (count > 0 && !ft_strchr(backup, '\n'))
+	while (count > 0 && !ft_strchr_gnl(backup, '\n'))
 	{
 		count = read(fd, buffer, BUFFER_SIZE);
 		if (count < 0)
@@ -85,7 +85,7 @@ static char	*read_line(char *backup, int fd)
 			return (NULL);
 		}
 		buffer[count] = '\0';
-		backup = ft_strjoin(backup, buffer);
+		backup = ft_strjoin_gnl(backup, buffer);
 	}
 	free(buffer);
 	return (backup);

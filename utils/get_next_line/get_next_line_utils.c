@@ -6,13 +6,13 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:30:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/08/02 00:48:00 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:23:30 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup_gnl(const char *s)
 {
 	size_t		size;
 	size_t		i;
@@ -34,7 +34,7 @@ char	*ft_strdup(const char *s)
 	return (string);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 
 {
 	int	i;
@@ -51,7 +51,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char	*s)
+size_t	ft_strlen_gnl(const char	*s)
 
 {
 	size_t	i;
@@ -62,19 +62,19 @@ size_t	ft_strlen(const char	*s)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char		*string;
 	size_t		i;
 	size_t		j;
 
 	if (!s1)
-		s1 = ft_strdup("");
+		s1 = ft_strdup_gnl("");
 	if (!s1 || !s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	string = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	string = malloc(sizeof(char) * (ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1));
 	if (!string)
 		return (NULL);
 	while (s1[i])
