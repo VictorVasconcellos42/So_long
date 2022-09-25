@@ -6,7 +6,7 @@
 #    By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/09/25 00:01:49 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/09/25 09:57:17 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ $(NAMELIB):
 	@echo "$(GREEN)Objects created!!$(END)"
 
 $(GAME): $(NAMELIB) $(OBJS)
-	@cc -g $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
+	@cc $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
 	@rm -rf $(OBJS)
 	@echo "$(GREEN)So_long created!!$(END)"
 
