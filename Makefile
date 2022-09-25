@@ -6,13 +6,14 @@
 #    By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/09/20 00:07:03 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/09/25 00:01:49 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 
-SRCS	=	src/so_long.c src/reader.c
+SRCS	=	src/so_long.c src/map_generator.c src/keys.c src/append_map.c \
+			src/start_game.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -59,7 +60,7 @@ $(NAMELIB):
 	@echo "$(GREEN)Objects created!!$(END)"
 
 $(GAME): $(NAMELIB) $(OBJS)
-	@cc $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
+	@cc -g $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
 	@rm -rf $(OBJS)
 	@echo "$(GREEN)So_long created!!$(END)"
 
