@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/09/25 00:23:13 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:40:00 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,17 @@
 # include "../utils/get_next_line/get_next_line.h"
 
 # define VICTOR "images/victor.xpm"
-# define WALLS "images/madeira.xpm"
+# define WALLS "images/wall.xpm"
 # define BRAHMA "images/brahma.xpm"
-# define FLOOR "images/walls.xpm"
+# define FLOOR "images/floor.xpm"
 # define EXIT "images/exit.xpm"
-# define W_PLAYER "images/d.xpm"
+# define W_PLAYER "images/w.xpm"
 # define A_PLAYER "images/a.xpm"
 # define S_PLAYER "images/victor.xpm"
-# define D_PLAYER "images/w.xpm"
+# define D_PLAYER "images/d.xpm"
+# define MEAT "images/meat.xpm"
 
-# define SPRITE 32
+# define SPRITE 64
 
 enum	e_keys
 
@@ -60,6 +61,7 @@ typedef struct	s_config
 	void	*server;
 	void	*win;
 	void	*player;
+	void	*meat;
 	void	*floor;
 	void	*walls;
 	void	*brahma;
