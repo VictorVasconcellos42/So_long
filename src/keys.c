@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:52:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/09/25 00:22:08 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:43:05 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	avatar_move(t_config *config, int wid, int hei)
 		config->phase[hei][wid] = 'P';
 	if (config->end)
 	{
-		ft_printf("You Win! Uhuuuuuu");
+		ft_printf("You Win! Uhuuuuuu\n");
 		exit(0);
 	}
 }

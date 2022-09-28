@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:22:35 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/09/24 23:44:11 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:28:31 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	set_phase(t_config *config, int wid, int hei)
 		insert(config, config->brahma, wid * SPRITE, hei * SPRITE);
 	if (config->phase[hei][wid] == 'E')
 		insert(config, config->exit, wid * SPRITE, hei * SPRITE);
+	if (config->phase[hei][wid] == 'X')
+		insert(config, config->meat, wid * SPRITE, hei * SPRITE);
 }
 
 int	append_map(t_config *config)
