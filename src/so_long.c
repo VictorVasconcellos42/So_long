@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:37:38 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/09/27 15:47:35 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:17:20 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ int	main(int argc, char *argv[])
 	mlx_hook(config.win, 17, 2, close_X, &config);
 	mlx_loop_hook(config.server, &append_map, &config);
 	mlx_loop(config.server);
+	return (0);
 }
