@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/04 16:03:25 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:06:43 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ typedef struct	s_config
 
 	int		end;
 	int		count_brahmas;
+	int		avatar_move;
+	int		exit_amount;
+	int		avatar_amount;
 	int		phase_columns;
 	int		phase_rows;
 
