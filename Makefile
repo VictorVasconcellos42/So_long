@@ -6,7 +6,7 @@
 #    By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/09/25 09:57:17 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/10/11 16:26:46 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,11 +61,11 @@ $(NAMELIB):
 
 $(GAME): $(NAMELIB) $(OBJS)
 	@cc $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
-	@rm -rf $(OBJS)
 	@echo "$(GREEN)So_long created!!$(END)"
 
 clean:
 	@$(MAKE) fclean -s -C $(PATH_LIB)
+	@rm -rf src/*.o
 	@echo "$(BLUE)[ D E L E T I N G ... ]$(END)"
 	@echo "$(RED)Objects successfully removed!$(END)"
 
@@ -74,7 +74,7 @@ fclean: clean
 	@rm -rf so_long
 
 debug: $(NAMELIB) $(OBJS)
-	@cc -g $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit src/main.c -o $(GAME)
+	@gcc -g $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
 	@rm -rf $(OBJS)
 	@echo "$(GREEN)So_long debugger created!!$(END)"
 
