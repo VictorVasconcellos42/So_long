@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:37:38 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/10 13:17:20 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:51:43 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,6 @@ int	close_X(void)
 
 {
 	exit(0);
-}
-
-int	close_window(int keycode, t_config *config)
-
-{
-	if (keycode == ESC)
-	{
-		mlx_destroy_window(config->server, config->win);
-		exit(0);
-	}
-	return (0);
 }
 
 int	main(int argc, char *argv[])
@@ -39,6 +28,7 @@ int	main(int argc, char *argv[])
 	config.phase = map_generator(&config, argv[1]);
 	if (!config.phase)
 		return (0);
+	config.end = 0;
 	start_game(&config);
 	append_map(&config);
 	mlx_key_hook(config.win, keys_game, &config);
