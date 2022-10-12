@@ -6,13 +6,13 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:55:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/11 18:40:44 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:00:54 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	start_variable(t_config *config)
+void	start_variables(t_config *config)
 
 {
 	config->count_brahmas = 0;
