@@ -6,7 +6,7 @@
 #    By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/10/11 16:26:46 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/10/12 10:47:08 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,10 +72,12 @@ clean:
 fclean: clean
 	@rm -rf $(NAMELIB)
 	@rm -rf so_long
+	@rm -rf so_long.DSYM/
 
 debug: $(NAMELIB) $(OBJS)
 	@gcc -g $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
 	@rm -rf $(OBJS)
+	@rm -rf so_long.DSYM/
 	@echo "$(GREEN)So_long debugger created!!$(END)"
 
 re: fclean all
