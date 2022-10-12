@@ -6,14 +6,14 @@
 #    By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/10/12 10:47:08 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/10/12 10:58:18 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 
 SRCS	=	src/so_long.c src/map_generator.c src/keys.c src/append_map.c \
-			src/start_game.c
+			src/start_game.c src/utils.c
 
 OBJS	=	$(SRCS:.c=.o)
 
