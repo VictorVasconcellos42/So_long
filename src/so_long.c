@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:37:38 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/11 18:51:43 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:00:14 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 	config.phase = map_generator(&config, argv[1]);
 	if (!config.phase)
 		return (0);
-	config.end = 0;
+	start_variables(&config);
 	start_game(&config);
 	append_map(&config);
 	mlx_key_hook(config.win, keys_game, &config);
