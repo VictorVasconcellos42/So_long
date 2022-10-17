@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:37:38 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/12 11:00:14 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:00:44 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 	t_config config;
 
 	if (argc != 2)
-		return (ft_printf("Error: ./so_long maps/<map>.ber only!\n"));
+		return (error_msg("./so_long maps/<map>.ber only!"));
 	config.phase = map_generator(&config, argv[1]);
 	if (!config.phase)
 		return (0);
