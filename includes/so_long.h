@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/12 10:58:00 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:00:28 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,5 @@ char    **reader(int fd);
 char    **map_generator(t_config *config, char *path_file);
 int		close_window(int keycode, t_config *config);
 void	start_variables(t_config *config);
-
+int		error_msg(char *msg);
 #endif
