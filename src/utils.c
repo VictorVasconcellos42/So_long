@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:55:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/12 11:00:54 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:58:42 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,11 @@ void	start_variables(t_config *config)
 	config->avatar_move = 0;
 	config->exit_amount = 0;
 	config->avatar_amount = 0;
+}
+
+int	error_msg(char *msg)
+
+{
+	ft_printf("Error: %s\n", msg);
+	return (1);
 }
