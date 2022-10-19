@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:37:38 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/17 11:00:44 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:12:45 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	close_X(void)
+int	close_x(void)
 
 {
 	exit(0);
@@ -21,7 +21,7 @@ int	close_X(void)
 int	main(int argc, char *argv[])
 
 {
-	t_config config;
+	t_config	config;
 
 	if (argc != 2)
 		return (error_msg("./so_long maps/<map>.ber only!"));
@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 	start_game(&config);
 	append_map(&config);
 	mlx_key_hook(config.win, keys_game, &config);
-	mlx_hook(config.win, 17, 2, close_X, &config);
+	mlx_hook(config.win, 17, 2, close_x, &config);
 	mlx_loop_hook(config.server, &append_map, &config);
 	mlx_loop(config.server);
 	return (0);
