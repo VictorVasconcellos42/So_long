@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_generator.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:17:44 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/09/24 23:29:35 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:01:17 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ char	**map_generator(t_config *config, char *path_file)
 	matriz_map = reader(fd);
 	config->phase = matriz_map;
 	config->copy_phase = matriz_map;
+	if (ft_valid(config) == 1)
+		exit(0);
 	append_map_size(config);
 	return (matriz_map);
 }
