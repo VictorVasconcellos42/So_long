@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/17 11:00:28 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:55:06 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ typedef struct	s_config
 	int		avatar_amount;
 	int		phase_columns;
 	int		phase_rows;
+	
+	int		i_w;
+	int		i_h;
 
 	char		**phase;
 	char		**copy_phase;
@@ -99,4 +102,5 @@ char    **map_generator(t_config *config, char *path_file);
 int		close_window(int keycode, t_config *config);
 void	start_variables(t_config *config);
 int		error_msg(char *msg);
+int		ft_valid(t_config *config);
 #endif
