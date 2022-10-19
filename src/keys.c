@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:52:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/11 18:52:58 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:13:10 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	avatar_img(t_config *config, char *sprite)
 
 {
 	mlx_destroy_image(config->server, config->player);
-	config->player = input_image(config, sprite); 
+	config->player = input_image(config, sprite);
 }
 
 void	avatar_move(t_config *config, int wid, int hei)
