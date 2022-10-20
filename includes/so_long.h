@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/18 17:55:06 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:29:03 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,19 @@ typedef struct	s_config
 
 
 	int		end;
-	int		count_brahmas;
 	int		avatar_move;
-	int		exit_amount;
-	int		avatar_amount;
 	int		phase_columns;
 	int		phase_rows;
 	
-	int		i_w;
-	int		i_h;
+	int		count_brahmas;
+	
+	int		coin_amount;
+	int		avatar_amount;
+	int		exit_amount;
+	int		wall_amount;
 
 	char		**phase;
-	char		**copy_phase;
+	char		**cp_map;
 
 	t_avatar	avatar;
 
@@ -103,4 +104,6 @@ int		close_window(int keycode, t_config *config);
 void	start_variables(t_config *config);
 int		error_msg(char *msg);
 int		ft_valid(t_config *config);
+int		has_plus_newline(char *string);
+int		valid_path(t_config *config, int i, int j);
 #endif
