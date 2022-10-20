@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:17:44 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/18 18:01:17 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:43:20 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ char	**reader(int fd)
 		free(lines);
 		return (NULL);
 	}
+	if (has_plus_newline(lines) == 1)
+		return (NULL);
 	return (ft_split(lines, '\n'));
 }
 
@@ -57,6 +59,7 @@ char	**map_generator(t_config *config, char *path_file)
 {
 	int		fd;
 	char	**matriz_map;
+	char	**map;
 
 	fd = open(path_file, O_RDONLY);
 	if (fd < 0)
@@ -65,9 +68,12 @@ char	**map_generator(t_config *config, char *path_file)
 		return (NULL);
 	}
 	matriz_map = reader(fd);
+	map = reader(fd);
 	config->phase = matriz_map;
-	config->copy_phase = matriz_map;
+	config->cp_map = map;
 	if (ft_valid(config) == 1)
+		exit(0);
+	else if (valid_path(config, 0, 0) == 1)
 		exit(0);
 	append_map_size(config);
 	return (matriz_map);
