@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:14:19 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/19 00:23:14 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/20 07:49:41 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static int	valid_map_format(t_config *config)
 	int			i;
 
 	i = 1;
-	{
 	while (config->copy_phase[i])
+	{
 		if (width_len != ft_strlen(config->phase_rows[i]))
 			return (1);
 		i++;
@@ -66,6 +66,29 @@ static int	valid_walls(t_config	*config, int i, int j, int count)
 	return (0);
 }
 
+static int	valid_quantiy(t_config	*config, int i, int j, int count)
+
+{
+	while (config->copy_phase[i])
+	{
+		j = -1;
+		while (config->copy_phase[i][++j])
+		{
+			if (config->copy_phase[i][j] == 'E')
+				config->exit_amount++;
+			else if (config->copy_phase[i][j] == 'C')
+				config->coin_amount++;
+			else if (config->copy_phase[i][j] == 'P')
+				config->avatar_amount++;
+			j++;
+		}
+	}
+	if (config->avatar_amount != 1 || config->exit_amount != 1 \
+	|| config->coin_amount < 1)
+		return (1);
+	return (0);
+}
+
 int	ft_valid(t_config	*config)
 
 {
@@ -73,5 +96,7 @@ int	ft_valid(t_config	*config)
 		return (error_msg("Map isn't a rectangle!!"));
 	else if (valid_walls(config, 0, 0, 0) == 1)
 		return (error_msg("Map isn't surrounded by walls"));
+	else if (valid_quantiy(config, 0, 0, 0) == 1)
+		return (error_msg("Map Invalid, Too many or too few characters"));
 	return (0);
 }
