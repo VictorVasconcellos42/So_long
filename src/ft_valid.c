@@ -6,13 +6,13 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:14:19 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/20 07:49:41 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:45:03 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static int	has_plus_newline(char *string)
+int	has_plus_newline(char *string)
 
 {
 	int	i;
@@ -27,13 +27,13 @@ static int	has_plus_newline(char *string)
 static int	valid_map_format(t_config *config)
 
 {	
-	const int	width_len = ft_strlen(config->copy_phase[0]);
+	const int	width_len = ft_strlen(config->cp_map[0]);
 	int			i;
 
 	i = 1;
-	while (config->copy_phase[i])
+	while (config->cp_map[i])
 	{
-		if (width_len != ft_strlen(config->phase_rows[i]))
+		if (width_len != (int)ft_strlen(config->cp_map[i]))
 			return (1);
 		i++;
 	}
@@ -43,19 +43,19 @@ static int	valid_map_format(t_config *config)
 static int	valid_walls(t_config	*config, int i, int j, int count)
 
 {
-	while (config->copy_phase[i])
+	while (config->cp_map[i])
 	{
-		if (config->copy_phase[i + 1] == NULL || i == 0)
+		if (config->cp_map[i + 1] == NULL || i == 0)
 		{
 			j = -1;
-			while (config->copy_phase[i][++j])
-				if (config->copy_phase[i][j] != '1')
+			while (config->cp_map[i][++j])
+				if (config->cp_map[i][j] != '1')
 					return (1);
 		}
-		j = ft_strlen(config->copy_phase[i]) - 1;
-		if (config->copy_phase[i][0] == '1')
+		j = ft_strlen(config->cp_map[i]) - 1;
+		if (config->cp_map[i][0] == '1')
 			count++;
-		if (config->copy_phase[i][j] == '1')
+		if (config->cp_map[i][j] == '1')
 			count++;
 		if (count != 2)
 			return (1);
@@ -66,22 +66,22 @@ static int	valid_walls(t_config	*config, int i, int j, int count)
 	return (0);
 }
 
-static int	valid_quantiy(t_config	*config, int i, int j, int count)
+static int	valid_quantiy(t_config *config, int i, int j)
 
 {
-	while (config->copy_phase[i])
+	while (config->cp_map[i])
 	{
 		j = -1;
-		while (config->copy_phase[i][++j])
+		while (config->cp_map[i][++j])
 		{
-			if (config->copy_phase[i][j] == 'E')
+			if (config->cp_map[i][j] == 'E')
 				config->exit_amount++;
-			else if (config->copy_phase[i][j] == 'C')
+			else if (config->cp_map[i][j] == 'C')
 				config->coin_amount++;
-			else if (config->copy_phase[i][j] == 'P')
+			else if (config->cp_map[i][j] == 'P')
 				config->avatar_amount++;
-			j++;
 		}
+		i++;
 	}
 	if (config->avatar_amount != 1 || config->exit_amount != 1 \
 	|| config->coin_amount < 1)
@@ -89,14 +89,14 @@ static int	valid_quantiy(t_config	*config, int i, int j, int count)
 	return (0);
 }
 
-int	ft_valid(t_config	*config)
+int	ft_valid(t_config *config)
 
 {
 	if (valid_map_format(config) == 1)
 		return (error_msg("Map isn't a rectangle!!"));
 	else if (valid_walls(config, 0, 0, 0) == 1)
 		return (error_msg("Map isn't surrounded by walls"));
-	else if (valid_quantiy(config, 0, 0, 0) == 1)
+	else if (valid_quantiy(config, 0, 0) == 1)
 		return (error_msg("Map Invalid, Too many or too few characters"));
 	return (0);
 }

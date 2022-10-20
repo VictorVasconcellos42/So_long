@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:07:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/20 13:36:17 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:47:43 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,17 @@
 void	append_player(t_config *player, int i, int j)
 
 {
-	while(player->cp_map[i])
+	while (player->cp_map[i])
 	{
 		j = 0;
-		while(player->cp_map[i][++j] != '1')
+		while (player->cp_map[i][++j] != '1')
 		{
 			if (player->cp_map[i][j] == 'C')
 				j++;
 			player->cp_map[i][j] = 'P';
-		}
-		
+		}	
 		i++;
 	}
-	for (int max = 0; max < i; max++)
-		printf("%s\n", player->cp_map[max]);
 }
 
 int	valid_path(t_config *cp, int i, int j)
