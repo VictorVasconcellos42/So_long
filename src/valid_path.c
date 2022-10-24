@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:07:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/24 18:29:45 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:39:40 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	exit_tester(t_config *cp, int i, int j)
 	cp->cp_map[cp->avatar.pos_h][cp->avatar.pos_w] = 'P';
 	while (cp->cp_map[++i])
 	{
-		printf("%s\n", cp->cp_map[i]);
 		j = 0;
 		while (cp->cp_map[i][++j])
 		{
