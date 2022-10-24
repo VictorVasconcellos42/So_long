@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-vasc <vde-vasc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:52:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/18 18:13:10 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/24 19:14:25 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	avatar_move(t_config *config, int wid, int hei)
 	config->phase[old_pos_h][old_pos_w] = '0';
 	if (!config->end)
 		config->phase[hei][wid] = 'P';
-	if (config->end)
+	if (config->count_brahmas == 0 && config->end)
 	{
 		ft_printf("You Win! Uhuuuuuu\n");
 		exit(0);
