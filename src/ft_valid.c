@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:14:19 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/20 13:45:03 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/24 00:02:52 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ static int	valid_walls(t_config	*config, int i, int j, int count)
 	return (0);
 }
 
+#include <stdio.h>
+
 static int	valid_quantiy(t_config *config, int i, int j)
 
 {
@@ -79,7 +81,15 @@ static int	valid_quantiy(t_config *config, int i, int j)
 			else if (config->cp_map[i][j] == 'C')
 				config->coin_amount++;
 			else if (config->cp_map[i][j] == 'P')
+			{
+				if (config->avatar_amount == 0)
+				{
+					config->cp_map[i][j] = '0';
+					config->avatar.pos_h = i;
+					config->avatar.pos_w = j;
+				}
 				config->avatar_amount++;
+			}
 		}
 		i++;
 	}
@@ -90,6 +100,7 @@ static int	valid_quantiy(t_config *config, int i, int j)
 }
 
 int	ft_valid(t_config *config)
+
 
 {
 	if (valid_map_format(config) == 1)
