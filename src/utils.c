@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:55:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/20 09:40:20 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:56:39 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	error_msg(char *msg)
 
 {
 	ft_printf("Error: %s\n", msg);
+	exit(0);
 	return (1);
 }
