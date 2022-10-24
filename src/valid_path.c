@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:07:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/24 00:01:21 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:26:56 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ int	exit_tester(t_config *cp, int i, int j)
 				if (ft_strchr("P", cp->cp_map[i][j - 1]))
 					cp->wall_amount++;
 				if (cp->wall_amount < 1)
-				{
-					cp->exit_amount--;
 					return (1);
-				}
 				else
 					cp->wall_amount = 0;
 			}
@@ -66,7 +63,6 @@ int	exit_tester(t_config *cp, int i, int j)
 int	valid_path(t_config *cp, int i, int j)
 
 {
-	int max = 0;
 	if (cp->cp_map[i][j] == 'C' || cp->cp_map[i][j] == '0')
 	{
 		if (cp->cp_map[i][j] == 'C')
@@ -74,15 +70,11 @@ int	valid_path(t_config *cp, int i, int j)
 		if (cp->cp_map[i][j] == 'E')
 			cp->exit_amount--;
 		cp->cp_map[i][j] = 'P';
-		while (max < 6)
-			printf("%s\n", cp->cp_map[max++]);
-		printf("\n");
 		valid_path(cp, i - 1, j);
 		valid_path(cp, i + 1, j);
 		valid_path(cp, i, j + 1);
 		valid_path(cp, i, j - 1);
 	}
-	printf("SOCORRO: [%i] - SAIDA: [%i] \n\n", cp->coin_amount, cp->exit_amount);
 	if (cp->coin_amount != 0)
 		return (1);
 	return (0);
