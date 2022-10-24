@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:37:38 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/18 18:12:45 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/21 09:49:08 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 		return (error_msg("./so_long maps/<map>.ber only!"));
+	start_variables(&config);
 	config.phase = map_generator(&config, argv[1]);
 	if (!config.phase)
 		return (0);
-	start_variables(&config);
 	start_game(&config);
 	append_map(&config);
 	mlx_key_hook(config.win, keys_game, &config);
