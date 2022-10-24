@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/20 11:29:03 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:25:46 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,5 @@ int		error_msg(char *msg);
 int		ft_valid(t_config *config);
 int		has_plus_newline(char *string);
 int		valid_path(t_config *config, int i, int j);
+int		exit_tester(t_config *cp, int i, int j);
 #endif
