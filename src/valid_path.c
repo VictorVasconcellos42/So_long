@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:07:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/24 18:26:56 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:29:45 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,6 @@ int	exit_tester(t_config *cp, int i, int j)
 	}
 	return (0);
 }
-
-/* static void	count_coin(t_config *player, int i, int j)
-
-{
-	while (player->cp_map[i])
-		i++;
-	i--;
-	while (--i)
-	{
-		j = 0;
-		if (i == 0)
-			break ;
-		while (++j < (int)ft_strlen(player->cp_map[i]) - 1)
-			if (player->cp_map[i][j] == 'C')
-				player->coin_amount++;
-	}	
-} */
 
 int	valid_path(t_config *cp, int i, int j)
 
