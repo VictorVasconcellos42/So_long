@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:17:44 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/20 13:43:20 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:57:50 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,10 @@ char	**map_generator(t_config *config, char *path_file)
 	config->cp_map = map;
 	if (ft_valid(config) == 1)
 		exit(0);
-	else if (valid_path(config, 0, 0) == 1)
-		exit(0);
+	else if (valid_path(config, config->avatar.pos_h, config->avatar.pos_w) == 1)
+		error_msg("No access to all collectible!");
+	if (exit_tester(config, 0, 0) == 1)
+		error_msg("No access to exit!");
 	append_map_size(config);
 	return (matriz_map);
 }
