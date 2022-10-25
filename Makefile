@@ -6,7 +6,7 @@
 #    By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/10/25 07:46:33 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/10/25 07:51:00 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,8 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAMELIB)
-	@rm -rf $(GNL)
+	@rm -rf $(GNL_LIB)
+	@RM -rf $(MLX_A)
 	@make clean -s -C $(MLX_PATH)
 	@rm -rf so_long
 	@rm -rf so_long.DSYM/
