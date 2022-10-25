@@ -6,12 +6,29 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:07:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/24 20:28:21 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/25 07:44:56 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include <stdio.h>
+
+int	valid_itens(t_config *config, int i, int j)
+
+{
+	while (config->cp_map[i])
+	{
+		j = 0;
+		while (config->cp_map[i][j])
+		{
+			if (!(ft_strchr("PCE10", config->cp_map[i][j])))
+				return (error_msg("Wrong character present"));
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
 
 int	exit_tester(t_config *cp, int i, int j)
 
