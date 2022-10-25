@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:14:19 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/24 22:11:06 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/25 07:44:00 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ int	ft_valid(t_config *config)
 		return (error_msg("Map isn't surrounded by walls"));
 	else if (valid_quantiy(config, 0, 0) == 1)
 		return (error_msg("Map Invalid, Too many or too few characters"));
+	else if (valid_itens(config, 0, 0) == 1)
+		return (1);
 	config->count_brahmas = config->coin_amount;
 	return (0);
 }
