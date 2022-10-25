@@ -6,11 +6,45 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:55:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/23 10:56:39 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/25 00:59:55 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	avatar_steps(t_config *config)
+
+{
+	config->avatar_move++;
+	ft_printf("Move count: %i\n", config->avatar_move);
+}
+
+void	free_to_maps(char **map)
+
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+		free(map[i++]);
+	free(map);
+}
+
+int	game_finish(t_config *config)
+
+{
+	mlx_destroy_image(config->server, config->brahma);
+	mlx_destroy_image(config->server, config->walls);
+	mlx_destroy_image(config->server, config->floor);
+	mlx_destroy_image(config->server, config->exit);
+	mlx_destroy_image(config->server, config->player);
+	mlx_destroy_window(config->server, config->win);
+	free(config->server);
+	free_to_maps(config->cp_map);
+	free_to_maps(config->phase);
+	exit(0);
+	return (0);
+}
 
 void	start_variables(t_config *config)
 
@@ -28,6 +62,5 @@ int	error_msg(char *msg)
 
 {
 	ft_printf("Error: %s\n", msg);
-	exit(0);
 	return (1);
 }

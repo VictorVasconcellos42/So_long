@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/23 11:25:46 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/25 01:02:00 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # define A_PLAYER "images/a.xpm"
 # define S_PLAYER "images/victor.xpm"
 # define D_PLAYER "images/d.xpm"
-# define MEAT "images/meat.xpm"
 
 # define SPRITE 64
 
@@ -61,7 +60,6 @@ typedef struct	s_config
 	void	*server;
 	void	*win;
 	void	*player;
-	void	*meat;
 	void	*floor;
 	void	*walls;
 	void	*brahma;
@@ -82,6 +80,7 @@ typedef struct	s_config
 
 	char		**phase;
 	char		**cp_map;
+	char		**map;
 
 	t_avatar	avatar;
 
@@ -107,4 +106,10 @@ int		ft_valid(t_config *config);
 int		has_plus_newline(char *string);
 int		valid_path(t_config *config, int i, int j);
 int		exit_tester(t_config *cp, int i, int j);
+int		game_finish(t_config *config);
+void	free_to_maps(char **map);
+int		validator(t_config *config);
+void	avatar_steps(t_config *config); 
+
+
 #endif

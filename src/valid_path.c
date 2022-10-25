@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:07:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/24 18:39:40 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:28:21 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	exit_tester(t_config *cp, int i, int j)
 				if (ft_strchr("P", cp->cp_map[i][j - 1]))
 					cp->wall_amount++;
 				if (cp->wall_amount < 1)
-					return (1);
+					return (error_msg("No access to exit!"));
 				else
 					cp->wall_amount = 0;
 			}

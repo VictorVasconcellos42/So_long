@@ -6,11 +6,27 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:17:44 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/24 18:36:29 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/25 01:04:09 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+int	validator(t_config *config)
+
+{
+	if (ft_valid(config) == 1)
+		return (1);
+	else if (valid_path(config, config->avatar.pos_h, \
+	config->avatar.pos_w) == 1)
+	{
+		error_msg("No access to all collectibles");
+		return (1);
+	}
+	if (exit_tester(config, 0, 0) == 1)
+		return (1);
+	return (0);
+}
 
 void	append_map_size(t_config *config)
 
@@ -59,7 +75,6 @@ char	**map_generator(t_config *config, char *path_file)
 {
 	int		fd;
 	char	**matriz_map;
-	char	**map;
 
 	fd = open(path_file, O_RDONLY);
 	if (fd < 0)
@@ -68,16 +83,9 @@ char	**map_generator(t_config *config, char *path_file)
 		return (NULL);
 	}
 	matriz_map = reader(fd);
-	map = reader(fd);
+	config->map = reader(fd);
 	config->phase = matriz_map;
-	config->cp_map = map;
-	if (ft_valid(config) == 1)
-		exit(0);
-	else if (valid_path(config, config->avatar.pos_h, \
-	config->avatar.pos_w) == 1)
-		error_msg("No access to all collectible!");
-	if (exit_tester(config, 0, 0) == 1)
-		error_msg("No access to exit!");
+	config->cp_map = config->map;
 	append_map_size(config);
 	return (matriz_map);
 }

@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:11:47 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/20 09:40:34 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/24 23:38:42 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	*input_image(t_config *config, char *path_img)
 	void	*image;
 
 	image = mlx_xpm_file_to_image(config->server, path_img, &width, &height);
+	if (!image)
+	{
+		error_msg("Where's your image bro?");
+		exit (1);
+	}
 	return (image);
 }
 
@@ -30,7 +35,6 @@ int	start_game(t_config *config)
 	config->win = mlx_new_window(config->server, config->phase_columns,
 			config->phase_rows, "Vitin Game");
 	config->player = input_image(config, VICTOR);
-	config->meat = input_image(config, MEAT);
 	config->walls = input_image(config, WALLS);
 	config->floor = input_image(config, FLOOR);
 	config->brahma = input_image(config, BRAHMA);

@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:52:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/24 19:14:25 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/24 23:42:56 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,13 @@ void	avatar_move(t_config *config, int wid, int hei)
 	config->avatar.pos_w = wid;
 	config->avatar.pos_h = hei;
 	config->phase[old_pos_h][old_pos_w] = '0';
+	avatar_steps(config);
 	if (!config->end)
 		config->phase[hei][wid] = 'P';
 	if (config->count_brahmas == 0 && config->end)
 	{
 		ft_printf("You Win! Uhuuuuuu\n");
-		exit(0);
+		game_finish(config);
 	}
 }
 
@@ -86,7 +87,7 @@ int	keys_game(int keycode, t_config *config)
 
 {
 	if (keycode == ESC)
-		exit(0);
+		return (game_finish(config));
 	moviments(keycode, config);
 	return (0);
 }
