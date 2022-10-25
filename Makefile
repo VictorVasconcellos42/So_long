@@ -6,7 +6,7 @@
 #    By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/10/20 09:10:01 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/10/25 07:46:33 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ NAMELIB	=	statics/libft.a
 
 MLX_A	=	statics/libmlx.a
 
+MLX		=	mlx/libmlx.a
+
 LIBFT	=	utils/libft/libft.a
 
 GNL_LIB	=	statics/get_next_line.a
@@ -30,6 +32,8 @@ GNL		=	utils/get_next_line/get_next_line.a
 PATH_LIB	=	utils/libft
 
 PATH_GNL	=	utils/get_next_line
+
+MLX_PATH	=	./mlx
 
 GAME	= so_long
 
@@ -45,7 +49,7 @@ BLUE	=	\033[0;34m
 
 END	=	\033[0m
 
-all: $(GAME) $(NAMELIB)
+all: $(GAME) $(NAMELIB) $(MLX_A)
 
 $(NAMELIB):
 	@$(MAKE) -s -C $(PATH_LIB)
@@ -55,11 +59,17 @@ $(NAMELIB):
 	@echo "$(BLUE)[ C R E A T I N G ... ]$(END)"
 	@echo "$(GREEN)Library created!!!$(END)"
 
+$(MLX_A):
+	@$(MAKE) -C $(MLX_PATH) &> /dev/null
+	@mv $(MLX) ./statics
+	@echo "$(BLUE)[ C R E A T I N G ... ]$(END)"	
+	@echo "$(GREEN)Library created!!!$(END)"
+
 .c.o:
 	@cc $(FLAGS) $< -c -o $@
 	@echo "$(GREEN)Objects created!!$(END)"
 
-$(GAME): $(NAMELIB) $(OBJS)
+$(GAME): $(NAMELIB) $(MLX_A) $(OBJS)
 	@cc $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
 	@echo "$(GREEN)So_long created!!$(END)"
 
@@ -71,6 +81,8 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAMELIB)
+	@rm -rf $(GNL)
+	@make clean -s -C $(MLX_PATH)
 	@rm -rf so_long
 	@rm -rf so_long.DSYM/
 
