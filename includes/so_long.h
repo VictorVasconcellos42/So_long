@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/25 01:02:00 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/25 07:42:48 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,8 @@ int		exit_tester(t_config *cp, int i, int j);
 int		game_finish(t_config *config);
 void	free_to_maps(char **map);
 int		validator(t_config *config);
-void	avatar_steps(t_config *config); 
+void	avatar_steps(t_config *config);
+int		valid_itens(t_config *config, int i, int j);
 
 
 #endif
