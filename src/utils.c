@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:55:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/25 00:59:55 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:51:30 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	free_to_maps(char **map)
 	i = 0;
 	while (map[i])
 		free(map[i++]);
+	free(map[i]);
 	free(map);
 }
 

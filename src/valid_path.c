@@ -6,12 +6,11 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:07:51 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/25 07:44:56 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/27 01:47:20 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include <stdio.h>
 
 int	valid_itens(t_config *config, int i, int j)
 

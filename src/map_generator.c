@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:17:44 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/25 01:04:09 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/27 01:47:14 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,17 @@ void	append_map_size(t_config *config)
 char	**reader(int fd)
 
 {
-	char	*phase;
-	char	*lines;
+	static char	*phase;
+	static char	*lines;
 
-	phase = ft_strdup("");
-	if (!phase)
-		return (NULL);
 	while (1)
 	{
 		phase = get_next_line(fd);
-		if (phase == NULL || phase[0] == '\n')
+		if (!phase || phase[0] == '\n')
 			break ;
 		lines = ft_strjoin_gnl(lines, phase);
+		if (!lines)
+			return (NULL);
 		free(phase);
 	}
 	free(phase);
@@ -73,8 +72,8 @@ char	**reader(int fd)
 char	**map_generator(t_config *config, char *path_file)
 
 {
-	int		fd;
-	char	**matriz_map;
+	int			fd;
+	static char	**matriz_map;
 
 	fd = open(path_file, O_RDONLY);
 	if (fd < 0)
@@ -83,7 +82,11 @@ char	**map_generator(t_config *config, char *path_file)
 		return (NULL);
 	}
 	matriz_map = reader(fd);
+	if (!(matriz_map))
+		return (NULL);
 	config->map = reader(fd);
+	if (!config->map)
+		return (NULL);
 	config->phase = matriz_map;
 	config->cp_map = config->map;
 	append_map_size(config);
