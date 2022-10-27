@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:57:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/05/24 12:17:28 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/27 01:32:28 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	*ft_calloc(size_t count, size_t size)
 		size = 1;
 	}
 	size *= count;
-	allocate = malloc(size);
+	allocate = malloc(size * sizeof(char));
 	if (!(allocate))
 		return (NULL);
 	ft_bzero(allocate, (size));
-	return (allocate);
+	return ((unsigned char *) allocate);
 }
