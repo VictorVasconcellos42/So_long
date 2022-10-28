@@ -6,7 +6,7 @@
 #    By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/10/27 11:56:51 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/10/28 07:28:20 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ MLX_PATH	=	./mlx
 
 GAME	= so_long
 
-FLAGS	= -g -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror
 
 #colors:
 
