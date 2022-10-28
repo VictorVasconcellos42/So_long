@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:14:19 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/26 23:04:26 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:31:12 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ static int	valid_quantiy(t_config *config, int i, int j)
 int	ft_valid(t_config *config)
 
 {
+	start_variables(config);
 	if (valid_map_format(config) == 1)
 		return (error_msg("Map isn't a rectangle!!"));
 	else if (valid_walls(config, 0, 0, 0) == 1)

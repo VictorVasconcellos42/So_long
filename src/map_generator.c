@@ -6,11 +6,27 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:17:44 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/27 01:47:14 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/28 07:22:24 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+char	**copy_map(char *array, t_config *config)
+
+{
+	char	**copy;
+	char	**map;
+
+	map = ft_split(array, '\n');
+	if (!map)
+		return (NULL);
+	copy = ft_split(array, '\n');
+	if (!copy)
+		return (NULL);
+	config->cp_map = copy;
+	return (map);
+}
 
 int	validator(t_config *config)
 
@@ -34,13 +50,13 @@ void	append_map_size(t_config *config)
 	int	height;
 
 	height = 0;
-	while (config->phase[height])
+	while (config->cp_map[height])
 		height++;
 	config->phase_columns = (ft_strlen(config->phase[0])) * SPRITE;
 	config->phase_rows = height * SPRITE;
 }
 
-char	**reader(int fd)
+char	*reader(int fd)
 
 {
 	static char	*phase;
@@ -66,14 +82,15 @@ char	**reader(int fd)
 	}
 	if (has_plus_newline(lines) == 1)
 		return (NULL);
-	return (ft_split(lines, '\n'));
+	return (lines);
 }
 
 char	**map_generator(t_config *config, char *path_file)
 
 {
 	int			fd;
-	static char	**matriz_map;
+	char		*map;
+	char		**matriz;
 
 	fd = open(path_file, O_RDONLY);
 	if (fd < 0)
@@ -81,14 +98,15 @@ char	**map_generator(t_config *config, char *path_file)
 		ft_printf("Error: File not found\n");
 		return (NULL);
 	}
-	matriz_map = reader(fd);
-	if (!(matriz_map))
+	map = reader(fd);
+	if (!(map))
 		return (NULL);
-	config->map = reader(fd);
-	if (!config->map)
+	matriz = copy_map(map, config);
+	if (!matriz)
+	{
+		free(map);
 		return (NULL);
-	config->phase = matriz_map;
-	config->cp_map = config->map;
-	append_map_size(config);
-	return (matriz_map);
+	}
+	free(map);
+	return (matriz);
 }

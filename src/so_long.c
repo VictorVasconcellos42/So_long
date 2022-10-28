@@ -6,10 +6,11 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:37:38 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/27 01:46:40 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/28 07:25:42 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "../includes/so_long.h"
 
 int	close_x(void)
@@ -25,15 +26,15 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 		return (error_msg("./so_long maps/<map>.ber only!"));
-	start_variables(&config);
 	config.phase = map_generator(&config, argv[1]);
 	if (!config.phase)
-		return (1);
+		return (0);
+	append_map_size(&config);
 	if (validator(&config) == 1)
 	{
 		free_to_maps(config.phase);
-		free_to_maps(config.map);
-		return (1);
+		free_to_maps(config.cp_map);
+		return (0);
 	}
 	start_game(&config);
 	append_map(&config);
