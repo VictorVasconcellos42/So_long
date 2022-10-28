@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:37:38 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/28 07:25:42 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:46:01 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int argc, char *argv[])
 		free_to_maps(config.cp_map);
 		return (0);
 	}
+	free_to_maps(config.cp_map);
 	start_game(&config);
 	append_map(&config);
 	mlx_key_hook(config.win, keys_game, &config);

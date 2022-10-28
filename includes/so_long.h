@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/27 15:13:10 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/28 07:37:29 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,14 @@ enum	e_keys
 	ESC = 53
 };
 
-// My struct for player in my game:
-
-typedef struct	s_avatar
+typedef struct s_avatar
 
 {
 	int		pos_w;
 	int		pos_h;
 }	t_avatar;
 
-// My struct's struct for my game:
-
-typedef struct	s_config
+typedef struct s_config
 
 
 {
