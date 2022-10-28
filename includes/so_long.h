@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/25 07:42:48 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:13:10 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void    insert(t_config *config, void *image, int wid, int hei);
 void    set_phase(t_config *config, int wid, int hei);
 int		append_map(t_config *config);
 void    append_map_size(t_config *config);
-char    **reader(int fd);
+char    *reader(int fd);
 char    **map_generator(t_config *config, char *path_file);
 int		close_window(int keycode, t_config *config);
 void	start_variables(t_config *config);
