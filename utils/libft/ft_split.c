@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:47:40 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/27 01:28:18 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/28 07:23:54 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char	**ft_split(char const *string, char c)
 	size_t	string_len;
 	int		count_words;
 	char	**array_words;
+	char	**array;
 
 	if (!(string))
 		return (NULL);
@@ -97,6 +98,7 @@ char	**ft_split(char const *string, char c)
 	array_words = ft_calloc(count_words + 1, sizeof(char *));
 	if (!(array_words))
 		return (NULL);
-	array_words = split_string(string, c, array_words);
-	return (array_words);
+	array = split_string(string, c, array_words);
+	freedom(array_words);
+	return (array);
 }
