@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 05:32:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/28 07:37:29 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:39:37 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 # define SPRITE 64
 
 enum	e_keys
-
 {
 	W_KEY = 13,
 	A_KEY = 0,
@@ -43,58 +42,49 @@ enum	e_keys
 };
 
 typedef struct s_avatar
-
 {
 	int		pos_w;
 	int		pos_h;
 }	t_avatar;
 
 typedef struct s_config
-
-
 {
-	void	*server;
-	void	*win;
-	void	*player;
-	void	*floor;
-	void	*walls;
-	void	*brahma;
-	void	*exit;
-
-
-	int		end;
-	int		avatar_move;
-	int		phase_columns;
-	int		phase_rows;
-	
-	int		count_brahmas;
-	
-	int		coin_amount;
-	int		avatar_amount;
-	int		exit_amount;
-	int		wall_amount;
-
+	void		*server;
+	void		*win;
+	void		*player;
+	void		*floor;
+	void		*walls;
+	void		*brahma;
+	void		*exit;
+	int			end;
+	int			avatar_move;
+	int			phase_columns;
+	int			phase_rows;
+	int			count_brahmas;
+	int			coin_amount;
+	int			avatar_amount;
+	int			exit_amount;
+	int			wall_amount;
 	char		**phase;
 	char		**cp_map;
 	char		**map;
-
 	t_avatar	avatar;
 
 }	t_config;
 
 int		possible_move(int wid, int hei, t_config *config);
-void    avatar_img(t_config *config, char *sprite);
-void    avatar_move(t_config *config, int wid, int hei);
-void    moviments(int keycode, t_config *config);
+void	avatar_img(t_config *config, char *sprite);
+void	avatar_move(t_config *config, int wid, int hei);
+void	moviments(int keycode, t_config *config);
 int		keys_game(int keycode, t_config *config);
-int 	start_game(t_config *config);
-void    *input_image(t_config *config, char *path_img);
-void    insert(t_config *config, void *image, int wid, int hei);
-void    set_phase(t_config *config, int wid, int hei);
+int		start_game(t_config *config);
+void	*input_image(t_config *config, char *path_img);
+void	insert(t_config *config, void *image, int wid, int hei);
+void	set_phase(t_config *config, int wid, int hei);
 int		append_map(t_config *config);
-void    append_map_size(t_config *config);
-char    *reader(int fd);
-char    **map_generator(t_config *config, char *path_file);
+void	append_map_size(t_config *config);
+char	*reader(int fd);
+char	**map_generator(t_config *config, char *path_file);
 int		close_window(int keycode, t_config *config);
 void	start_variables(t_config *config);
 int		error_msg(char *msg);
@@ -107,6 +97,5 @@ void	free_to_maps(char **map);
 int		validator(t_config *config);
 void	avatar_steps(t_config *config);
 int		valid_itens(t_config *config, int i, int j);
-
 
 #endif

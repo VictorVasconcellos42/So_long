@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:47:40 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/28 11:45:01 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:14:00 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,7 @@ char	**ft_split(char const *string, char c)
 	if (!(array_words))
 		return (NULL);
 	array = split_string(string, c, array_words);
+	if (!array)
+		return (freedom(array_words));
 	return (array);
 }

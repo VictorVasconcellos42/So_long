@@ -6,7 +6,7 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:17:44 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/28 07:22:24 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/29 11:17:12 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	append_map_size(t_config *config)
 	int	height;
 
 	height = 0;
-	while (config->cp_map[height])
+	while (config->phase[height])
 		height++;
 	config->phase_columns = (ft_strlen(config->phase[0])) * SPRITE;
 	config->phase_rows = height * SPRITE;
@@ -74,7 +74,7 @@ char	*reader(int fd)
 	}
 	free(phase);
 	close(fd);
-	if (!*lines)
+	if (!lines || !*lines)
 	{
 		ft_printf("ERROR!\n");
 		free(lines);
@@ -102,11 +102,6 @@ char	**map_generator(t_config *config, char *path_file)
 	if (!(map))
 		return (NULL);
 	matriz = copy_map(map, config);
-	if (!matriz)
-	{
-		free(map);
-		return (NULL);
-	}
 	free(map);
 	return (matriz);
 }

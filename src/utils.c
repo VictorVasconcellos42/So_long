@@ -6,12 +6,11 @@
 /*   By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:55:07 by vde-vasc          #+#    #+#             */
-/*   Updated: 2022/10/28 07:24:52 by vde-vasc         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:39:01 by vde-vasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include <stdio.h>
 
 void	avatar_steps(t_config *config)
 
@@ -37,7 +36,6 @@ int	game_finish(t_config *config)
 
 {
 	free_to_maps(config->phase);
-	free_to_maps(config->cp_map);
 	mlx_destroy_image(config->server, config->brahma);
 	mlx_destroy_image(config->server, config->walls);
 	mlx_destroy_image(config->server, config->floor);

@@ -6,7 +6,7 @@
 #    By: vde-vasc <vde-vasc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 21:45:07 by vde-vasc          #+#    #+#              #
-#    Updated: 2022/10/28 07:28:20 by vde-vasc         ###   ########.fr        #
+#    Updated: 2022/10/28 13:30:10 by vde-vasc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,23 +74,20 @@ $(GAME): $(NAMELIB) $(MLX_A) $(OBJS)
 	@echo "$(GREEN)So_long created!!$(END)"
 
 clean:
-	@$(MAKE) fclean -s -C $(PATH_LIB)
+	@$(MAKE) clean -s -C $(PATH_LIB)
+	@$(MAKE) clean -s -C $(MLX_PATH)
+	@$(MAKE) clean -s -C $(PATH_GNL)
 	@rm -rf src/*.o
 	@echo "$(BLUE)[ D E L E T I N G ... ]$(END)"
 	@echo "$(RED)Objects successfully removed!$(END)"
 
 fclean: clean
+	@$(MAKE) fclean -s -C $(PATH_LIB)
+	@$(MAKE) fclean -s -C $(PATH_GNL)
 	@rm -rf $(NAMELIB)
 	@rm -rf $(GNL_LIB)
-	@RM -rf $(MLX_A)
-	@make clean -s -C $(MLX_PATH)
+	@rm -rf $(MLX_A)
 	@rm -rf so_long
 	@rm -rf so_long.DSYM/
-
-debug: $(NAMELIB) $(OBJS)
-	@gcc -g $(FLAGS) $(NAMELIB) $(GNL_LIB) $(MLX_A) -framework OpenGL -framework AppKit $(OBJS) -o $(GAME)
-	@rm -rf $(OBJS)
-	@rm -rf so_long.DSYM/
-	@echo "$(GREEN)So_long debugger created!!$(END)"
 
 re: fclean all
